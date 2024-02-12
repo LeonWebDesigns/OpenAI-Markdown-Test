@@ -25,7 +25,7 @@ class OpenAIService {
           },
         ],
       });
-
+      console.log(response);
       return response.choices[0].message.content;
     } catch (error) {
       console.log('error', error);

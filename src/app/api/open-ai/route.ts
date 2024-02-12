@@ -3,7 +3,7 @@ import OpenAIService from '@/services/open-ai.service';
 
 const OpenAI = new OpenAIService();
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const prompt = req.nextUrl.searchParams.get('prompt');
 
   if (!prompt) {
