@@ -14,7 +14,6 @@ const ChatPage = () => {
     // Retrieve chats from local storage
     (async () => {
       const storedChats = localStorage.getItem('chats') as string | null;
-      console.log(storedChats);
 
       const parseJSON = async (json: string) => {
         try {
@@ -28,11 +27,8 @@ const ChatPage = () => {
 
       const chatsJSON = storedChats ? await parseJSON(storedChats) : null;
       if (chatsJSON.length > 0) {
-        console.log('successfully imported chats');
-        console.log(chatsJSON);
         setConversation(chatsJSON);
       } else {
-        console.log('why am i here');
         setConversation([
           {
             who: 'bot',
@@ -43,63 +39,6 @@ const ChatPage = () => {
       }
     })();
   }, []);
-
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault();
-  //   if (!input.trim()) return;
-
-  //   setIsLoading(true); // Set loading to true while processing the request
-  //   const userMessage = input;
-  //   setInput(''); // Clear the input after sending the message
-  //   setConversation([
-  //     ...conversation,
-  //     {
-  //       who: 'user',
-  //       content: userMessage,
-  //       time: new Date().toLocaleTimeString(),
-  //     },
-  //   ]);
-
-  //   try {
-  //     const url = new URL('/api/open-ai', window.location.href);
-  //     url.searchParams.append('prompt', userMessage);
-  //     const response = await fetch(url, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     });
-  //     const data = await response.json();
-  //     setConversation([
-  //       ...conversation,
-  //       {
-  //         who: 'user',
-  //         content: userMessage,
-  //         time: new Date().toLocaleTimeString(),
-  //       },
-  //       {
-  //         who: 'bot',
-  //         content: data.message,
-  //         time: new Date().toLocaleTimeString(),
-  //       },
-  //     ]);
-  //   } catch (error) {
-  //     console.error('Error sending message:', error);
-  //     setConversation([
-  //       ...conversation,
-  //       {
-  //         who: 'bot',
-  //         content: 'Sorry, something went wrong.',
-  //         time: new Date().toLocaleTimeString(),
-  //       },
-  //     ]);
-  //   } finally {
-  //     setIsLoading(false);
-  //     localStorage.setItem('chats', JSON.stringify(conversation));
-  //     const localChats = localStorage.getItem('chats');
-  //     console.log('stored after posting', localChats);
-  //   }
-  // };
 
   // This useEffect hook will run whenever the conversation state changes
   useEffect(() => {
