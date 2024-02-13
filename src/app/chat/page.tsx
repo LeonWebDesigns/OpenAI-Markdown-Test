@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 const ChatPage = () => {
   const [input, setInput] = useState('');
   const [conversation, setConversation] = useState<
-    { who: string; content: string; time: any }[]
+    { who: string; content: string; time: string }[]
   >([]);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -47,7 +47,7 @@ const ChatPage = () => {
     }
   }, [conversation]); // Dependency array with conversation ensures this runs on conversation state updates
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim()) return;
 
