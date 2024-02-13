@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 const navigation = [
   { name: 'Chat', href: '/chat' },
-  { name: 'About', href: '/about' },
+  // { name: 'About', href: '/about' },
 ];
 
 export default function Example() {
