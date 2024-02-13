@@ -59,11 +59,7 @@ export default function Example() {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Leon Web Designs</span>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt=""
-                />
+                <img className="h-8 w-auto" src="" alt="" />
               </a>
               <button
                 type="button"
